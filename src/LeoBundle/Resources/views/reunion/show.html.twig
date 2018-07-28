@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reunion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reunion.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if reunion.date %}{{ reunion.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ reunion.type }}</td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td>{{ reunion.lieu }}</td>
+            </tr>
+            <tr>
+                <th>Ordredujour</th>
+                <td>{{ reunion.ordreDuJour }}</td>
+            </tr>
+            <tr>
+                <th>Pv</th>
+                <td>{{ reunion.pv }}</td>
+            </tr>
+            <tr>
+                <th>Iduser</th>
+                <td>{{ reunion.idUser }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reunion_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('reunion_edit', { 'id': reunion.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

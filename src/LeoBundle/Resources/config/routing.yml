@@ -1,3 +1,7 @@
 leo_homepage:
     path:     /
     defaults: { _controller: LeoBundle:Default:index }
+
+leo_reunion:
+    resource: "@LeoBundle/Resources/config/routing/reunion.yml"
+    prefix:   /reunion

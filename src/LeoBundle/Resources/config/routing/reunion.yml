@@ -1,0 +1,24 @@
+reunion_index:
+    path:     /
+    defaults: { _controller: "LeoBundle:Reunion:index" }
+    methods:  GET
+
+reunion_show:
+    path:     /{id}/show
+    defaults: { _controller: "LeoBundle:Reunion:show" }
+    methods:  GET
+
+reunion_new:
+    path:     /new
+    defaults: { _controller: "LeoBundle:Reunion:new" }
+    methods:  [GET, POST]
+
+reunion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "LeoBundle:Reunion:edit" }
+    methods:  [GET, POST]
+
+reunion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "LeoBundle:Reunion:delete" }
+    methods:  DELETE

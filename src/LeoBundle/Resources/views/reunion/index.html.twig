@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reunions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Lieu</th>
+                <th>Ordredujour</th>
+                <th>Pv</th>
+                <th>Iduser</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reunion in reunions %}
+            <tr>
+                <td><a href="{{ path('reunion_show', { 'id': reunion.id }) }}">{{ reunion.id }}</a></td>
+                <td>{% if reunion.date %}{{ reunion.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ reunion.type }}</td>
+                <td>{{ reunion.lieu }}</td>
+                <td>{{ reunion.ordreDuJour }}</td>
+                <td>{{ reunion.pv }}</td>
+                <td>{{ reunion.idUser }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('reunion_show', { 'id': reunion.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('reunion_edit', { 'id': reunion.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reunion_new') }}">Create a new reunion</a>
+        </li>
+    </ul>
+{% endblock %}
