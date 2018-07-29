@@ -3,6 +3,7 @@
 namespace LeoBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,7 @@ class ReunionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date')->add('type')->add('lieu')->add('ordreDuJour')->add('pv')->add('idUser');
+        $builder->add('date')->add('type',ChoiceType::class,['choices' => ['Statutaire'=> "statutaire",'Sociale'=> "sociale"]])->add('lieu')->add('ordreDuJour')->add('pv')->add('idUser');
     }/**
      * {@inheritdoc}
      */

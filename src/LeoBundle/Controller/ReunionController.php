@@ -16,14 +16,26 @@ class ReunionController extends Controller
      * Lists all reunion entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+
+        $reunion = new Reunion();
+        $form = $this->createForm('LeoBundle\Form\ReunionType', $reunion);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($reunion);
+            $em->flush();
+        }
 
         $reunions = $em->getRepository('LeoBundle:Reunion')->findAll();
 
         return $this->render('@Leo/reunion/index.html.twig', array(
             'reunions' => $reunions,
+            'reunion' => $reunion,
+            'form' => $form->createView(),
         ));
     }
 
@@ -45,7 +57,7 @@ class ReunionController extends Controller
             return $this->redirectToRoute('reunion_show', array('id' => $reunion->getId()));
         }
 
-        return $this->render('reunion/new.html.twig', array(
+        return $this->render('@Leo/reunion/index.html.twig', array(
             'reunion' => $reunion,
             'form' => $form->createView(),
         ));
@@ -59,7 +71,7 @@ class ReunionController extends Controller
     {
         $deleteForm = $this->createDeleteForm($reunion);
 
-        return $this->render('reunion/show.html.twig', array(
+        return $this->render('@Leo/reunion/show.html.twig', array(
             'reunion' => $reunion,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -81,7 +93,7 @@ class ReunionController extends Controller
             return $this->redirectToRoute('reunion_edit', array('id' => $reunion->getId()));
         }
 
-        return $this->render('reunion/edit.html.twig', array(
+        return $this->render('@Leo/reunion/edit.html.twig', array(
             'reunion' => $reunion,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -118,7 +130,6 @@ class ReunionController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('reunion_delete', array('id' => $reunion->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

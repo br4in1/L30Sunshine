@@ -9,7 +9,7 @@ reunion_show:
     methods:  GET
 
 reunion_new:
-    path:     /new
+    path:     /
     defaults: { _controller: "LeoBundle:Reunion:new" }
     methods:  [GET, POST]
 
