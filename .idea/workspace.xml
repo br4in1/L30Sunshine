@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f4864b5-a3a5-4bac-ad61-42a28c3704d4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/Images/sociale.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/Images/statutaire.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_28_07_18_02_32_s.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LeoBundle/Controller/ReunionController.php" afterPath="$PROJECT_DIR$/src/LeoBundle/Controller/ReunionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LeoBundle/Form/ReunionType.php" afterPath="$PROJECT_DIR$/src/LeoBundle/Form/ReunionType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LeoBundle/Resources/config/routing/reunion.yml" afterPath="$PROJECT_DIR$/src/LeoBundle/Resources/config/routing/reunion.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LeoBundle/Resources/views/reunion/index.html.twig" afterPath="$PROJECT_DIR$/src/LeoBundle/Resources/views/reunion/index.html.twig" />
-    </list>
+    <list default="true" id="4f4864b5-a3a5-4bac-ad61-42a28c3704d4" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
