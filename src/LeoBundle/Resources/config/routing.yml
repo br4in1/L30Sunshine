@@ -5,3 +5,7 @@ leo_homepage:
 leo_reunion:
     resource: "@LeoBundle/Resources/config/routing/reunion.yml"
     prefix:   /reunion
+
+leo_stock:
+    resource: "@LeoBundle/Resources/config/routing/stock.yml"
+    prefix:   /stock
