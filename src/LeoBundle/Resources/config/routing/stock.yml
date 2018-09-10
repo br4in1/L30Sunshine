@@ -1,7 +1,7 @@
 stock_index:
     path:     /
     defaults: { _controller: "LeoBundle:Stock:index" }
-    methods:  GET
+    methods:  [GET,POST]
 
 stock_show:
     path:     /{id}/show
@@ -21,4 +21,4 @@ stock_edit:
 stock_delete:
     path:     /{id}/delete
     defaults: { _controller: "LeoBundle:Stock:delete" }
-    methods:  DELETE
+

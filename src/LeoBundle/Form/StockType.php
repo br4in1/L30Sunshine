@@ -16,10 +16,11 @@ class StockType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('quantite')->add('dateDebut',DateType::class)->add('idProduit',EntityType::class,array(
+        $builder->add('quantite')->add('dateDebut',DateType::class,array('label' => 'Date', 'attr' => array('id' => 'm_datepicker_1')))->add('idProduit',EntityType::class,array(
             'class'=>'LeoBundle\Entity\Produit',
+            'label'=>'Produit',
             'choice_label'=>'libelle'
-        ))->add('idUser');
+        ))->add('idUser',null,array('label'=>'Utilisateur'));
     }/**
      * {@inheritdoc}
      */

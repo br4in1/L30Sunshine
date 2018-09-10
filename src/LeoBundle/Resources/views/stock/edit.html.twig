@@ -1,21 +1,19 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheet %}
+{% endblock %}
 {% block body %}
+    {% form_theme edit_form 'bootstrap_3_layout.html.twig' %}
+
     <h1>Stock edit</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+    <center><input type="submit" value="Modifier" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air" /></center> <br>
+
+
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('stock_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <center>  <a href="{{ path('stock_index') }}" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air" >Retour</a></center>
+
+
 {% endblock %}

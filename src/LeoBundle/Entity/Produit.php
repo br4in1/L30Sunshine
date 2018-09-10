@@ -34,7 +34,28 @@ class Produit
      * @ORM\Column(name="photo", type="string", length=255)
      */
     private $photo;
+    /**
+     * @var integer
+     * @ORM\ManyToOne(targetEntity="LeoBundle\Entity\Categorie")
+     * @ORM\JoinColumn(name="idCategorie", referencedColumnName="id")
+     */
+    private $idCategorie;
 
+    /**
+     * @return int
+     */
+    public function getIdCategorie()
+    {
+        return $this->idCategorie;
+    }
+
+    /**
+     * @param int $idCategorie
+     */
+    public function setIdCategorie($idCategorie)
+    {
+        $this->idCategorie = $idCategorie;
+    }
 
     /**
      * Get id

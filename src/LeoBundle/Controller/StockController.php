@@ -2,6 +2,7 @@
 
 namespace LeoBundle\Controller;
 
+use LeoBundle\Entity\Produit;
 use LeoBundle\Entity\Stock;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,14 +17,13 @@ class StockController extends Controller
      * Lists all stock entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request,Request $request2)
     {
         $em = $this->getDoctrine()->getManager();
-
         $stocks = $em->getRepository('LeoBundle:Stock')->findAll();
-
+        dump($stocks);
         return $this->render('LeoBundle:stock:index.html.twig', array(
-            'stocks' => $stocks,
+            'stocks' => $stocks
         ));
     }
 
@@ -34,15 +34,14 @@ class StockController extends Controller
     public function newAction(Request $request)
     {
         $stock = new Stock();
-        $form = $this->createForm('LeoBundle\Form\StockType', $stock);
+        $form = $this->createForm('LeoBundle\Form\StockType', $stock,array('action' => $this->generateUrl('stock_new')));
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($stock);
             $em->flush();
 
-            return $this->redirectToRoute('stock_show', array('id' => $stock->getId()));
+            return $this->redirectToRoute('stock_index');
         }
 
         return $this->render('LeoBundle:stock:new.html.twig', array(
@@ -92,16 +91,25 @@ class StockController extends Controller
      * Deletes a stock entity.
      *
      */
-    public function deleteAction(Request $request, Stock $stock)
+    public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($stock);
+        /*$form = $this->createDeleteForm($stock);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($stock);
             $em->flush();
+        }*/
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('LeoBundle:Stock')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Stock entity.');
         }
+
+        $em->remove($entity);
+        $em->flush();
 
         return $this->redirectToRoute('stock_index');
     }

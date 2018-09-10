@@ -9,3 +9,7 @@ leo_reunion:
 leo_stock:
     resource: "@LeoBundle/Resources/config/routing/stock.yml"
     prefix:   /stock
+
+leo_produit:
+    resource: "@LeoBundle/Resources/config/routing/produit.yml"
+    prefix:   /produit
